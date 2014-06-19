@@ -1,0 +1,79 @@
+==================================================================
+https://keybase.io/jem
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://www.loftinspace.com.au
+  * I am jem (https://keybase.io/jem) on keybase.
+  * I have a public key with fingerprint 2AFD 4BB7 EF77 7F5C 5EF5  383E 3310 1ABB 05C8 620A
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.4.7"
+        },
+        "key": {
+            "fingerprint": "2afd4bb7ef777f5c5ef5383e33101abb05c8620a",
+            "host": "keybase.io",
+            "key_id": "33101ABB05C8620A",
+            "uid": "faf1df541d46b9fdd3aa887d4731f600",
+            "username": "jem"
+        },
+        "merkle_root": {
+            "ctime": 1403163702,
+            "hash": "2980e0cdb2443b108ceecb0c81d3778231958a14ca333ff28f773f68eed3aed28922bd4dace07528fd2370d026d31ac9980bfc689662f19b504625a3f597778d",
+            "seqno": 20786
+        },
+        "service": {
+            "hostname": "www.loftinspace.com.au",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1403163811,
+    "expire_in": 157680000,
+    "prev": "3efa5c39d911d336c2864dcdcb8a0559b92a7ede0360f63a0f4126a407aa0922",
+    "seqno": 5,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+owFVUltoHFUY3t0arZFqSPGCCkmHYgLZLucyc+bMhoJp81KqKESkQu16rsm02Zl1
+ZpJNugRFvLRVoxXRVCjYRvtkqkGkd5CikOIFrPFBpUJ8MG2DD1pjW6viOSGiPU9z
+5v/+7/++7z+vrlqRK+Rxy90nmmZ4c/6zCzzXd/D1yYbDYznqlBuOGAxVlNmviFWV
+U3Z2qFHOUlUK4/Yolqq0PW1fxhSdYZWkYRwZFCi5Jd8ZK1q4bdZh1K+SWhJaLgcx
+LV3OfaV939ee8JT2MMUKYwgg4xx4ghIEmKEciNPsuqnOEmcllObvEr5nwwbgbbT4
+HlMbWipopqHUngulS3igpcSMUepL18dQEwAsMFXJsqXtqmqlVlWyY1BVkjhe8iuy
+0FahCzAk2AfIiGHpgJUfUKCAkBy5LuYQUKGU4EBQKLHvU4Rh4FEGXcEwxlojamxi
+TahSRoeSiAYIcelKJhTwPVOWyPBLgIjEkInA0HMtCA0IQRoG3AMuQR7D2gtMXlQa
+9al6MoqdMgI+JWP2mgyHQlnZNrBlX/V6vTQY6yyM0pqZVRJxtcSGTHctibNYxIMG
+M5BltbJ1n43WbM90XfHKMl2Fh5E0i/v/ZqGBXp8MhbDoqJFamKhKaBGeTygwx85R
+w3ZNSjNP4EAG0CSEiUCUuFJIwSkDnhfwADFfSQUwAZpgBrQLEWEu8BkDJqv//HpG
+J+s3lGnYH7FsKFHO2O78vTfk8oXcjU0F+3RzzTe3/Puej+RX5t46fPTYlSutk2rV
+D89VP3nv4tez5TtJ6/HPv+h4592+PR3hteaR2Y6vyldvO4+3uNlvLS/Onf/mD3h2
+Yevjj66Zb3v78u0HLm27dM9H/s6JQ/ubzu168MyzyQfDu8/RT8/IA2NdzaSwotF5
+8Y6Jmw5N79w1/tTepxe/3fN366+/P7ymr7H+4M/hYv10IWwc7bwV3r9p37XxR07P
+nCo+IJIvN65+rPMh5X/8/Xdzets8yV7p4fMLczPFtW3PL/SeXEm71t/Fb3m/+/C6
+l1/Yf/bDlstTPzaNTE70TnX1HtEn/+za0v1S25vuusU32ve9duHqpqGp6V9at4J4
+89rxn57IRmhl9ez8M/dt3vtXt/gH
+=Kb7+
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/jem
+
+==================================================================
+
+
+
