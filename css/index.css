@@ -1,0 +1,114 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  overflow-x: hidden;
+}
+header.splash {
+  height: 600px;
+  background: linear-gradient(rgba(23, 22, 23, 0.15), rgba(23, 22, 23, 0.15)), url(/img/software-development-consulting.jpg) no-repeat top center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#calling p {
+  margin: 40px auto 0 auto;
+  color: white;
+  font-family: 'Vollkorn' serif;
+  font-size: 1.8em;
+}
+header #content {
+  margin-top: 60px;
+  float: left;
+}
+header #nav {
+  float:right;
+  margin-top: 100px;
+  margin-right: 50px;
+}
+header #nav a {
+  color: #282828;
+  text-decoration: none;
+}
+header #nav a li {
+  list-style: none;
+  padding: 0 20px 0 70px;
+  margin: 10px 0;
+  border-radius: 3px;
+  font: 22px/1.5 'Vollkorn', Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  background: rgba(255, 255, 255, 0.8);
+  text-align: right;
+}
+#logo img {
+  width: 500px;
+  display: block;
+}
+#offerings {
+  background-color: white;
+  height: 300px;
+  margin: 0 auto 0;
+  width: 80%;
+}
+.offer {
+  width: 33%;
+  float: left;
+  padding: 50px 1px 10px 1px;
+  font-family: 'Vollkorn' serif;
+}
+.offer h3 {
+  padding: 0 30px 0 30px;
+  margin-bottom: 20px;
+}
+.offer p {
+  padding: 10px 30px 0 30px;
+}
+.extend {
+  margin-left: -30px;
+  padding-left: 30px;
+  margin-right: -30px;
+  padding-right: 30px;
+  margin-top: -30px;
+  padding-top: 30px;
+}
+.centred {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.midwide {
+  width: 60%;
+}
+
+@media (min-width: 1200px) {
+    header.splash {
+      background: linear-gradient(rgba(23, 22, 23, 0.15), rgba(23, 22, 23, 0.15)), url(/img/software-development-consulting-wide.jpg) no-repeat top center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+  header #content {
+    margin-top: 80px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1500px) {
+  #calling p {
+    margin: 30px auto 0 auto;
+    padding-bottom: 150px;
+    color: white;
+    font-family: 'Vollkorn' serif;
+    font-size: 1.6em;
+  }
+}
+@media (max-width: 1200px) {
+  #calling p {
+    margin: 20px auto 0 auto;
+    padding-bottom: 120px;
+    color: white;
+    font-family: 'Vollkorn' serif;
+    font-size: 1.5em;
+  }
+}

@@ -1,73 +1,57 @@
 <html>
   <head>
     <title>Loft in Space</title>
-    <link href="css/blog.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Petrona|Asap:400,700" type="text/css"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link href="css/index.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Vollkorn|Asap:400,700" type="text/css"/>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css"/>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
     <script type="text/javascript" src="js/ga.js"></script>
   </head>
   <body>
-    <div id="main">
-      <div id="full-logo">
-        <img src="img/loft in space 1.png" alt="Loft in Space"/>
-      </div>
-      <div class="hr"></div>
-      <div id="body">
-        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<div class="post">
-  <div id="date">21 April 2014</div>
-  <h1 class="title">
-    <a href="cluster-singleton-in-akka.html">Cluster Singleton in Akka</a>
-  </h1>
-  <div id="copy" class="copy">
-<p>In a highly-available application, it is occasionally necessary to have some processing performed in isolation within a cluster, whilst still allowing for processing to continue should the designated worker node fail. This is trivial with Akka clustering support for the Cluster Singleton pattern.</p>
-    <div id="read-more">
-      <a href="cluster-singleton-in-akka.html">
-        Read the rest of this post.
-      </a>
-    </div>
-  </div>
-</div>
-
-        <div id="divider"></div>
-        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<div class="post">
-  <div id="date">05 March 2014</div>
-  <h1 class="title">
-    <a href="tdd-without-unit-tests.html">TDD without Unit Tests</a>
-  </h1>
-  <div id="copy" class="copy">
-<p>Many years ago I was walking through the office when I passed a colleague talking to our manager. I overheard him as he was putting forward the case for using Ruby - "The great thing about dynamic[ly typed] languages is that they <em>force</em> you to write tests", he said. Because our manager was already committed to the importance of high test coverage, the idea of putting natural pressure on developers to write tests was probably quite appealing.</p>
-    <div id="read-more">
-      <a href="tdd-without-unit-tests.html">
-        Read the rest of this post.
-      </a>
-    </div>
-  </div>
-</div>
-
-        <div id="divider"></div>
-        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<div class="post">
-  <div id="date">25 January 2014</div>
-  <h1 class="title">
-    <a href="publishing-scala-libraries-to-sonatype.html">Publishing Scala libraries to Sonatype</a>
-  </h1>
-  <div id="copy" class="copy">
-<p>You have a scala library that others might find useful. You build it with SBT and you want to publish it to an online repository so that others can use it in their projects. Wonderful! </p><p>This post explains the process of publishing your project artefacts to the <a href="http://oss.sonatype.org/">Sonatype OSSRH (Open Source Software Repository Hosting) Service</a>.</p>
-    <div id="read-more">
-      <a href="publishing-scala-libraries-to-sonatype.html">
-        Read the rest of this post.
-      </a>
-    </div>
-  </div>
-</div>
-
-        <div id="divider"></div>
+    <div id="wrapper">
+      <header class="splash extend">
+        <div id="content" class="midwide">
+          <div id="logo">
+            <img class="centred" src="img/loft-in-space-software-consulting-full-logo-white.png" alt="Loft in Space"/>
+          </div>
+          <div id="calling">
+            <p class="centred midwide">We are passionate about building effective software solutions that achieve the optimum balance between business value, cost and quality.</p>
+          </div>
+        </div>
+        <div id="nav">
+          <nav id="main-nav">
+            <ul>
+              <a href="/blog.html">
+                <li>Blog</li>
+              </a>
+              <a href="/archive.html">
+                <li>Archive</li>
+              </a>
+              <a href="/about-loft-in-space.html">
+                <li>About</li>
+              </a>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <div id="offerings">
+        <div class="offer">
+          <h3>Software Design &amp; Development</h3>
+          <p>Over 15 years of experience in delivering quality solutions of varying sizes and complexity including full stack application, system integration, standalone web based and back end application development and test automation.</p>
+          <p>We take our time to understand our user's needs so that we could propose and implement the most appropriate solution across multiple options, achieving it through evaluating trade-offs between business value drivers and costs.</p>
+          <p>We are proficient in providing end to end oversight in project delivery from concept to deployment from concept, design, build to measuring the end result against business goals tracking delivery through to commercial success.</p>
+        </div>
+        <div class="offer">
+          <h3>Strategic Business Analysis/Product Planning</h3>
+          <p>Expertise in developing business cases, and product strategy/plan for the purpose of optimising business outcomes, operational efficiency and cost saving. We have proven experience in outsourcing solution valuation and development of RFI/RFP.  Our strong technical capability combined with commercial acumen, enables us to collaborate with users to develop fit-for-purpose technology solutions that are aligned with business/product strategies.</p>
+        </div>
+        <div class="offer">
+          <h3>Software Development Tooling/Process</h3>
+          <p>We are passionate about improving the productivity of technology teams by introducing new tools and processes, such as Test Driven Development (TDD), Behavioural Driven Development (BDD), build optimisation, continuous integration, and cloud based services. We can also provide fresh perspective in design review, application review, and remediation and assistance in Git Migration as well as agile coaching.</p>
+        </div>
       </div>
     </div>
-    <div id="finalfrontier">&nbsp;</div>
   </body>
 </html>
