@@ -1,90 +1,134 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-  <head>
+<head>
     <title>Cluster Singleton in Akka</title>
     <link rel="stylesheet" href="css/blog.css" type="text/css"/>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css"/>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Vollkorn|Asap:400,700" type="text/css"/>
     <script type="text/javascript" src="js/ga.js"></script>
-    <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-  </head>
-  <body>
-    <div id="main">
-      <div id="header">
+    <script type="text/javascript"
+            src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+</head>
+<body>
+<div id="main">
+    <header id="header">
         <div id="logo">
-  <a href="/">
-    <img src="img/loft-in-space-software-consulting-logo.png" style="width:80px" alt="Loft in Space"/>
-  </a>
-</div>
-<div id="nav">
-  <nav id="main-nav">
-    <ul>
-      <li>
-        <a href="/blog.html">Blog</a>
-      </li>
-      <li>
-        <a href="/archive.html">Archive</a>
-      </li>
-      <li>
-        <a href="/about-loft-in-space.html">About</a>
-      </li>
-    </ul>
-  </nav>
-</div>
+            <a href="/">
+                <img src="img/loft-in-space-software-consulting-logo.png" style="width:80px" alt="Loft in Space"/>
+            </a>
+        </div>
+        <div id="nav">
+            <nav id="main-nav">
+                <ul>
+                    <li>
+                        <a href="/blog.html">Blog</a>
+                    </li>
+                    <li>
+                        <a href="/archive.html">Archive</a>
+                    </li>
+                    <li>
+                        <a href="/about-loft-in-space.html">About</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
 
-      </div>
-      <div class="hr"></div>
-      <div id="body">
-        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<div class="post">
-  <div id="date">21 April 2014</div>
-  <h1 class="title">
-    Cluster Singleton in Akka
-  </h1>
-  <div id="copy" class="copy">
-<p>In a highly-available application, it is occasionally necessary to have some processing performed in isolation within a cluster, whilst still allowing for processing to continue should the designated worker node fail. This is trivial with Akka clustering support for the Cluster Singleton pattern.</p>
-<div id="break"></div><p>For a motivating example, consider a system that processes large files from a clustered file system. It is important that any given file is processed exactly once. Atomic file management is difficult due to the lag time of the file system clustering. Any system that relies solely on file renaming or locking to designate which node is processing the file will most likely run into contention, leading to unreliable results. An alternative approach is to ensure only one node is actively seeking work. In this scenario no contention can possibly occur. </p><p>Akka has made things very easy for developers in the Java ecosystem who need this kind of support. Built upon its remote actor support, Akka enables <a href="http://doc.akka.io/docs/akka/snapshot/common/cluster.html">clusters</a> to be created - the formation of disparate actor systems into one logical actor system. Creation of a cluster is straight-forward, requiring only the configuration of a <a href="https://github.com/Synesso/scratch-akka-cluster-singleton/blob/38771ed9939/src/main/resources/application.conf#L3">cluster-specific provider</a> and one or more <a href="https://github.com/Synesso/scratch-akka-cluster-singleton/blob/38771ed9939/src/main/resources/application.conf#L15">seed nodes</a>. Akka handles the complexity of node membership for us, using a <a href="http://en.wikipedia.org/wiki/Gossip_protocol">gossip protocol</a>. In a short time it is easy to demonstrate a simple system that is aware of the joining and leaving of nodes and provides horizontal scalability.</p><p>Within a cluster there is implicitly always at most one node designated as <em>leader</em>. It is possible to define an actor that is active only on the leader node. This is the <a href="http://doc.akka.io/docs/akka/snapshot/contrib/cluster-singleton.html#cluster-singleton">Cluster Singleton</a> pattern. It is enabled simply by defining actor properties using the <code>akka.contrib.pattern.ClusterSingletonManager</code>.</p>
+    </header>
+    <div class="hr"></div>
+    <div id="body">
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        <div class="post">
+            <div id="date">21 April 2014</div>
+            <h1 class="title">
+                Cluster Singleton in Akka
+            </h1>
+
+            <div id="copy" class="copy">
+                <p>In a highly-available application, it is occasionally necessary to have some processing performed in
+                    isolation within a cluster, whilst still allowing for processing to continue should the designated
+                    worker node fail. This is trivial with Akka clustering support for the Cluster Singleton
+                    pattern.</p>
+
+                <div id="break"></div>
+                <p>For a motivating example, consider a system that processes large files from a clustered file system.
+                    It is important that any given file is processed exactly once. Atomic file management is difficult
+                    due to the lag time of the file system clustering. Any system that relies solely on file renaming or
+                    locking to designate which node is processing the file will most likely run into contention, leading
+                    to unreliable results. An alternative approach is to ensure only one node is actively seeking work.
+                    In this scenario no contention can possibly occur. </p>
+
+                <p>Akka has made things very easy for developers in the Java ecosystem who need this kind of support.
+                    Built upon its remote actor support, Akka enables <a
+                            href="http://doc.akka.io/docs/akka/snapshot/common/cluster.html">clusters</a> to be created
+                    - the formation of disparate actor systems into one logical actor system. Creation of a cluster is
+                    straight-forward, requiring only the configuration of a <a
+                            href="https://github.com/Synesso/scratch-akka-cluster-singleton/blob/38771ed9939/src/main/resources/application.conf#L3">cluster-specific
+                        provider</a> and one or more <a
+                            href="https://github.com/Synesso/scratch-akka-cluster-singleton/blob/38771ed9939/src/main/resources/application.conf#L15">seed
+                        nodes</a>. Akka handles the complexity of node membership for us, using a <a
+                            href="http://en.wikipedia.org/wiki/Gossip_protocol">gossip protocol</a>. In a short time it
+                    is easy to demonstrate a simple system that is aware of the joining and leaving of nodes and
+                    provides horizontal scalability.</p>
+
+                <p>Within a cluster there is implicitly always at most one node designated as <em>leader</em>. It is
+                    possible to define an actor that is active only on the leader node. This is the <a
+                            href="http://doc.akka.io/docs/akka/snapshot/contrib/cluster-singleton.html#cluster-singleton">Cluster
+                        Singleton</a> pattern. It is enabled simply by defining actor properties using the <code>akka.contrib.pattern.ClusterSingletonManager</code>.
+                </p>
 <pre><code class="prettyprint">
-val clusterSingletonProperties = ClusterSingletonManager.props(
-  singletonProps = Props(classOf[YourSingletonActor]),
-  singletonName = "the-singleton",
-  terminationMessage = PoisonPill,
-  role = None
-)
-system.actorOf(clusterSingletonProperties, "clusterSingleton")
-</code></pre><p>The resulting actor will always be created on a node when that node becomes the leader. It will not exist more than once in a cluster. However it is possible that, through an unfortunate sequence of seed node termination and restarts that you obtain two clusters! (In which case you will certainly have two cluster singletons running). The <a href="https://github.com/Synesso/scratch-akka-cluster-singleton/blob/38771ed9939/src/main/scala/sample/cluster/simple/SimpleClusterApp.scala#L24">configuration property <code>akka.cluster.role.$role.min-nr-of-members</code></a> can be used to ensure that the cluster is not effected until a quorum is established.</p><p>I have derived a simplified example of cluster singleton usage from the provided typesafe activator examples. Clone it from GitHub and follow the instructions in the readme to observe the cluster singleton in action. <a href="https://github.com/Synesso/scratch-akka-cluster-singleton">https://github.com/Synesso/scratch-akka-cluster-singleton</a>.</p>  </div>
-  <div id="meta">
-    <div class="pubDate">
-      <i class="fa fa-calendar"></i>
-      <span class="date">21 April 2014</span>
-    </div>
-    <div class="tail">
-      <i class="fa fa-tags"></i>
-      <span class="tag">akka</span>
-      <span class="tag">scala</span>
-    </div>
-    <div class="tail">
-      <i class="fa fa-pencil-square-o"></i>
-      <span class="author">by Jem Mawson</span>
-    </div>
-  </div>
-</div>
+    val clusterSingletonProperties = ClusterSingletonManager.props(
+      singletonProps = Props(classOf[YourSingletonActor]),
+      singletonName = "the-singleton",
+      terminationMessage = PoisonPill,
+      role = None)
+    system.actorOf(clusterSingletonProperties, "clusterSingleton")
+</code></pre>
+                <p>The resulting actor will always be created on a node when that node becomes the leader. It will not
+                    exist more than once in a cluster. However it is possible that, through an unfortunate sequence of
+                    seed node termination and restarts that you obtain two clusters! (In which case you will certainly
+                    have two cluster singletons running). The <a
+                            href="https://github.com/Synesso/scratch-akka-cluster-singleton/blob/38771ed9939/src/main/scala/sample/cluster/simple/SimpleClusterApp.scala#L24">configuration
+                        property <code>akka.cluster.role.$role.min-nr-of-members</code></a> can be used to ensure that
+                    the cluster is not effected until a quorum is established.</p>
+
+                <p>I have derived a simplified example of cluster singleton usage from the provided typesafe activator
+                    examples. Clone it from GitHub and follow the instructions in the readme to observe the cluster
+                    singleton in action. <a href="https://github.com/Synesso/scratch-akka-cluster-singleton">https://github.com/Synesso/scratch-akka-cluster-singleton</a>.
+                </p></div>
+            <div id="meta">
+                <div class="pubDate">
+                    <i class="fa fa-calendar"></i>
+                    <span class="date">21 April 2014</span>
+                </div>
+                <div class="tail">
+                    <i class="fa fa-tags"></i>
+                    <span class="tag">akka</span>
+                    <span class="tag">scala</span>
+                </div>
+                <div class="tail">
+                    <i class="fa fa-pencil-square-o"></i>
+                    <span class="author">by Jem Mawson</span>
+                </div>
+            </div>
+        </div>
 
         <div id="disqus_thread"></div>
-<script type="text/javascript" src="js/disqus.js"></script>
-<noscript>
-  Please enable JavaScript to view the
-  <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com" class="dsq-brlink">
-  comments powered by
-  <span class="logo-disqus">Disqus</span>
-</a>
+        <script type="text/javascript" src="js/disqus.js"></script>
+        <noscript>
+            Please enable JavaScript to view the
+            <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+        <a href="http://disqus.com" class="dsq-brlink">
+            comments powered by
+            <span class="logo-disqus">Disqus</span>
+        </a>
 
-      </div>
     </div>
-    <div id="finalfrontier">
-      &nbsp;
-    </div>
-  </body>
+</div>
+<div id="finalfrontier">
+    &nbsp;
+</div>
+</body>
 </html>
