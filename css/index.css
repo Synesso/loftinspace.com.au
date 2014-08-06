@@ -1,6 +1,6 @@
 @import url("nav.css");
 
-header #nav li a { color: white; }
+header #nav li a { color: #efefef; }
 
 body {
   overflow-x: hidden;
@@ -17,7 +17,7 @@ header.splash {
   margin: 40px auto 0 auto;
   color: white;
   font-family: 'Vollkorn' serif;
-  font-size: 1.8em;
+  font-size: 1.7em;
 }
 header #content {
   margin-top: 60px;
@@ -41,7 +41,7 @@ li { font: 22px/1.5 'Vollkorn', Georgia, serif; -webkit-font-smoothing: antialia
   width: 33%;
   float: left;
   padding: 50px 1px 10px 1px;
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .offer img {
   height: 60%;
@@ -52,9 +52,14 @@ li { font: 22px/1.5 'Vollkorn', Georgia, serif; -webkit-font-smoothing: antialia
   padding: 0 30px 0 30px;
   margin-bottom: 20px;
 }
+
 .offer p {
-  padding: 10px 30px 0 30px;
+    padding: 10px 30px 0 30px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    line-height: 1.4em;
 }
+
 .extend {
   margin-left: -30px;
   padding-left: 30px;
