@@ -38,7 +38,7 @@ li { font: 22px/1.5 'Vollkorn', Georgia, serif; -webkit-font-smoothing: antialia
   background-color: white;
   height: 300px;
   margin: 0 auto 0;
-  width: 80%;
+  width: 85%;
 }
 .offer {
   width: 33%;
@@ -49,11 +49,14 @@ li { font: 22px/1.5 'Vollkorn', Georgia, serif; -webkit-font-smoothing: antialia
 .offer img {
   height: 60%;
   display: block;
-  margin: 0 0 30px 30px;
-    opacity: 0.8;
+  margin: 0 0 30px 40px;
+  opacity: 0.8;
+}
+.offer .cntr {
+    margin: 0 auto;
 }
 .offer h3 {
-  padding: 0 30px 0 30px;
+  padding: 0 40px 0 40px;
   margin-bottom: 20px;
 }
 .offer h3::first-letter {
@@ -61,7 +64,7 @@ li { font: 22px/1.5 'Vollkorn', Georgia, serif; -webkit-font-smoothing: antialia
     padding-top: .4em;
 }
 .offer p {
-    padding: 10px 30px 0 30px;
+    padding: 10px 40px 0 40px;
     letter-spacing: 1px;
     font-weight: 400;
     line-height: 1.4em;
