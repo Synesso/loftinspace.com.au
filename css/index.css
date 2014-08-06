@@ -47,14 +47,14 @@ li { font: 22px/1.5 'Vollkorn', Georgia, serif; -webkit-font-smoothing: antialia
   font-family: 'Roboto', sans-serif;
 }
 .doxie-img {
-  height: 200px;
+  height: 170px;
   vertical-align: bottom;
 }
 .offer img {
   height: 100%;
   display: block;
   margin: 0 0 30px 40px;
-  opacity: 0.8;
+  opacity: 0.65;
 }
 .offer .cntr {
     margin: 0 auto;
@@ -63,16 +63,18 @@ li { font: 22px/1.5 'Vollkorn', Georgia, serif; -webkit-font-smoothing: antialia
   padding: 0 40px 0 40px;
   margin-bottom: 20px;
   height: 3em;
+  color: #1b1b23;
 }
 .offer h3::first-letter {
     border-top: 5px solid #D53007;
     padding-top: .4em;
-}
+    }
 .offer p {
     padding: 10px 40px 0 40px;
     letter-spacing: 1px;
     font-weight: 400;
     line-height: 1.4em;
+    color: #494949;
 }
 .extend {
   margin-left: -30px;
