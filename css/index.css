@@ -1,4 +1,7 @@
 @import url("nav.css");
+
+header #nav li a { color: white; }
+
 body {
   overflow-x: hidden;
 }
@@ -20,7 +23,7 @@ header #content {
   margin-top: 60px;
   float: left;
 }
-header #nav-wrap { max-width: 1175px; margin: 0 auto; padding: 50px 20px 0 20px; }
+header #nav-wrap { max-width: 1175px; margin: 0 auto; padding: 15px 20px 0 20px; }
 header nav { float: right; }
 li { font: 22px/1.5 'Vollkorn', Georgia, serif; -webkit-font-smoothing: antialiased; color: #343434; }
 
