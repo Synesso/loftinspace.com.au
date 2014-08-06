@@ -19,6 +19,9 @@ header.splash {
   font-family: 'Vollkorn' serif;
   font-size: 1.7em;
 }
+#calling p a {
+  color: white;
+}
 header #content {
   margin-top: 60px;
   float: left;
