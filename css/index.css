@@ -46,8 +46,12 @@ li { font: 22px/1.5 'Vollkorn', Georgia, serif; -webkit-font-smoothing: antialia
   padding: 30px 1px 10px 1px;
   font-family: 'Roboto', sans-serif;
 }
+.doxie-img {
+  height: 200px;
+  vertical-align: bottom;
+}
 .offer img {
-  height: 60%;
+  height: 100%;
   display: block;
   margin: 0 0 30px 40px;
   opacity: 0.8;
@@ -58,6 +62,7 @@ li { font: 22px/1.5 'Vollkorn', Georgia, serif; -webkit-font-smoothing: antialia
 .offer h3 {
   padding: 0 40px 0 40px;
   margin-bottom: 20px;
+  height: 3em;
 }
 .offer h3::first-letter {
     border-top: 5px solid #D53007;
@@ -69,7 +74,6 @@ li { font: 22px/1.5 'Vollkorn', Georgia, serif; -webkit-font-smoothing: antialia
     font-weight: 400;
     line-height: 1.4em;
 }
-
 .extend {
   margin-left: -30px;
   padding-left: 30px;
