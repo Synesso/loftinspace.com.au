@@ -6,7 +6,7 @@ body {
   overflow-x: hidden;
 }
 header.splash {
-  height: 95%;
+  height: 92%;
   background: linear-gradient(rgba(23, 22, 23, 0.15), rgba(23, 22, 23, 0.15)), url(/img/software-development-consulting-wide.jpg) no-repeat top center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -43,20 +43,21 @@ li { font: 22px/1.5 'Vollkorn', Georgia, serif; -webkit-font-smoothing: antialia
 .offer {
   width: 33%;
   float: left;
-  padding: 50px 1px 10px 1px;
+  padding: 30px 1px 10px 1px;
   font-family: 'Roboto', sans-serif;
 }
 .offer img {
   height: 60%;
   display: block;
   margin: 0 0 30px 30px;
+    opacity: 0.8;
 }
 .offer h3 {
   padding: 0 30px 0 30px;
   margin-bottom: 20px;
 }
 .offer h3::first-letter {
-    border-top: 5px solid #999796;
+    border-top: 5px solid #D53007;
     padding-top: .4em;
 }
 .offer p {
