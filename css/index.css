@@ -48,11 +48,14 @@ li { font: 22px/1.5 'Vollkorn', Georgia, serif; -webkit-font-smoothing: antialia
   height: 170px;
   vertical-align: bottom;
 }
+.offer img {
+  margin: 0 0 30px 40px;
+}
 .doxie-img img {
   height: 100%;
   display: block;
-  margin: 0 0 30px 40px;
   opacity: 0.7;
+  margin: 0 auto;
 }
 .offer .cntr {
     margin: 0 auto;
