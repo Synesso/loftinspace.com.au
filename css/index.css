@@ -48,7 +48,7 @@ li { font: 22px/1.5 'Vollkorn', Georgia, serif; -webkit-font-smoothing: antialia
   height: 170px;
   vertical-align: bottom;
 }
-.offer img {
+.doxie-img img {
   height: 100%;
   display: block;
   margin: 0 0 30px 40px;
@@ -99,3 +99,18 @@ li { font: 22px/1.5 'Vollkorn', Georgia, serif; -webkit-font-smoothing: antialia
     padding-top: 30px;
     border-top: 1px darkgrey solid;
 }
+.quote, #author{
+    font-family: 'Roboto', sans-serif;
+   /* font-style: italic;*/
+    letter-spacing: 1px;
+    font-size: 1.5em;
+    /*line-height: 1.4em;*/
+    color:#494949;
+    text-align: center;
+}
+
+#author{
+    font-size: 1em;
+    font-style: italic;
+}
+
