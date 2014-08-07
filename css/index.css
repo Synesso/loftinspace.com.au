@@ -37,8 +37,6 @@ li { font: 22px/1.5 'Vollkorn', Georgia, serif; -webkit-font-smoothing: antialia
 #offerings {
   background-color: white;
   height: 300px;
-  margin: 0 auto 0;
-  width: 85%;
 }
 .offer {
   width: 33%;
@@ -91,4 +89,13 @@ li { font: 22px/1.5 'Vollkorn', Georgia, serif; -webkit-font-smoothing: antialia
 }
 .midwide {
   width: 60%;
+}
+.narrowed {
+    margin: 0 auto;
+    width: 85%;
+}
+.separated {
+    clear: both;
+    padding-top: 30px;
+    border-top: 1px darkgrey solid;
 }
