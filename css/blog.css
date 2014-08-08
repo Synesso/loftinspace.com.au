@@ -1,22 +1,91 @@
 @import url("nav.css");
-a { text-decoration: none; color: #dd574c; }
-a:hover { color: #dd924c; transition: 0.3s ease-in; -webkit-transition: 0.3s ease-in; }
-body { max-width: 1175px; padding: 22px 20px 0 20px; margin: 0 auto; }
-h1 { font-family: 'Asap', Helvetica, sans-serif; font-size: 48px; text-align: center; }
-h3 { font-size: 22px; }
-h4 { font-size: 20px; }
-img { border-width: 0; }
-li code { font-size: 18px; }
-li { font: 22px/1.5 'Vollkorn', Georgia, serif; -webkit-font-smoothing: antialiased; color: #343434; }
-p code { font-size: 14px; }
-p { font: 22px/1.5 'Vollkorn', Georgia, serif; -webkit-font-smoothing: antialiased; color: #343434; }
-pre { margin: 0 30px 0 30px; }
 
-#full-logo { text-align: center; }
-#header #logo { float: left; }
-#read-more { text-align: center; font: 20px 'Vollkorn', Georgia, serif; }
+a {
+    text-decoration: none;
+    color: #dd574c;
+}
 
-.post #date { color: #d2d2d2; text-align: center; font: 20px 'Vollkorn', Georgia, serif; }
-.post { padding: 48px 20%; }
-.title a { color: black; }
-.title a:hover { color: grey; }
+a:hover {
+    color: #dd924c;
+    transition: 0.3s ease-in;
+    -webkit-transition: 0.3s ease-in;
+}
+
+body {
+    max-width: 1175px;
+    padding: 22px 20px 0 20px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-family: 'Asap', Helvetica, sans-serif;
+    font-size: 48px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+img {
+    border-width: 0;
+}
+
+li code {
+    font-size: 18px;
+}
+
+li {
+    font: 22px/1.5 'Vollkorn', Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+    color: #343434;
+}
+
+p code {
+    font-size: 14px;
+}
+
+p {
+    font: 22px/1.5 'Vollkorn', Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+    color: #343434;
+}
+
+pre {
+    margin: 0 30px 0 30px;
+}
+
+#full-logo {
+    text-align: center;
+}
+
+#header #logo {
+    float: left;
+}
+
+#read-more {
+    text-align: center;
+    font: 20px 'Vollkorn', Georgia, serif;
+}
+
+.post #date {
+    color: #d2d2d2;
+    text-align: center;
+    font: 20px 'Vollkorn', Georgia, serif;
+}
+
+.post {
+    padding: 48px 20%;
+}
+
+.title a {
+    color: black;
+}
+
+.title a:hover {
+    color: grey;
+}
