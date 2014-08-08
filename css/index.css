@@ -102,7 +102,7 @@ li { font: 22px/1.5 'Vollkorn', Georgia, serif; -webkit-font-smoothing: antialia
     padding-top: 30px;
     border-top: 1px darkgrey solid;
 }
-.quote, #author{
+.quote,.pitch,#author{
     font-family: 'Roboto', sans-serif;
    /* font-style: italic;*/
     letter-spacing: 1px;
@@ -111,9 +111,34 @@ li { font: 22px/1.5 'Vollkorn', Georgia, serif; -webkit-font-smoothing: antialia
     color:#494949;
     text-align: center;
 }
+blockquote{
+    margin-bottom: -6px;
+}
+blockquote:before {
+    content: "\201c";
+    left:-5px;
+}
+blockquote:after {
+    content: "\201d";
+    right: -5px;
+}
+blockquote:before, blockquote:after {
+    color: #ccc;
+    font-family: Georgia, serif;
+    font-size: 60px;
+    font-weight: 300;
+    position:relative;
+    top:15px;
+    /*left: -55px;
+    top: 0px;*/
+}
 
 #author{
     font-size: 1em;
     font-style: italic;
+}
+.pitch{
+    color: #292935;
+    font-size: 1.2em;
 }
 
