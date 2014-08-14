@@ -1,9 +1,36 @@
 .round-photo {
-    float: right;
     width: 250px;
     height: 250px;
     border-radius: 125px;;
-    -webkit-border-radius: 125px;;
-    -moz-border-radius: 125px;;
+    -webkit-border-radius: 125px;
+    -moz-border-radius: 125px;
+}
+
+.chen {
+    background: url(/img/chen.jpg) no-repeat;
+}
+
+.jem {
     background: url(/img/jem.jpg) no-repeat;
 }
+
+.left {
+    float: left;
+    margin-right: 40px;
+}
+
+.right {
+    float: right;
+    margin-left: 40px;
+}
+
+.name {
+    font-family: 'Vollkorn', serif;
+    font-size: 2em;
+}
+
+.post-wide {
+    width: 1000px;
+    margin: 80px auto 20px;
+}
+
