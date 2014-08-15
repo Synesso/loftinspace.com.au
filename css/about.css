@@ -33,7 +33,11 @@
 }
 
 .name {
-    font-family: 'Vollkorn', serif;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 400;
+    line-height: 1.4em;
+    color: #1b1b23;
     font-size: 2em;
 }
 
