@@ -12,13 +12,13 @@ a:hover {
     -webkit-transition: 0.3s ease-in;
 }
 
-body {
+#main {
     max-width: 1175px;
     padding: 22px 20px 0 20px;
     margin: 0 auto;
 }
 
-li, p {
+#main li, #main p {
     font: 22px/1.5 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     color: #343434;
