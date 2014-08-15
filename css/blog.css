@@ -39,7 +39,7 @@ li code {
     font-size: 18px;
 }
 
-li {
+li, p {
     font: 22px/1.5 'Vollkorn', Georgia, serif;
     -webkit-font-smoothing: antialiased;
     color: #343434;
@@ -47,12 +47,6 @@ li {
 
 p code {
     font-size: 14px;
-}
-
-p {
-    font: 22px/1.5 'Vollkorn', Georgia, serif;
-    -webkit-font-smoothing: antialiased;
-    color: #343434;
 }
 
 pre {

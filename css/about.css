@@ -1,4 +1,28 @@
 @import url("quotes.css");
+@import url("nav.css");
+
+a {
+    text-decoration: none;
+    color: #dd574c;
+}
+
+a:hover {
+    color: #dd924c;
+    transition: 0.3s ease-in;
+    -webkit-transition: 0.3s ease-in;
+}
+
+body {
+    max-width: 1175px;
+    padding: 22px 20px 0 20px;
+    margin: 0 auto;
+}
+
+li, p {
+    font: 22px/1.5 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #343434;
+}
 
 .round-photo {
     width: 250px;
@@ -63,3 +87,17 @@
 #us {
     padding-bottom: 1em;
 }
+
+.post {
+    padding: 24px 20%;
+}
+
+img {
+    border-width: 0;
+}
+
+#full-logo {
+    text-align: center;
+    clear: both;
+}
+
