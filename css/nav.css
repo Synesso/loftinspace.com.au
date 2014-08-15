@@ -55,3 +55,9 @@ body {
     width: 100%;
 }
 
+.separated {
+    clear: both;
+    padding-top: 30px;
+    border-top: 1px lightgrey solid;
+}
+

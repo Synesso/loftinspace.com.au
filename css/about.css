@@ -1,3 +1,5 @@
+@import url("quotes.css");
+
 .round-photo {
     width: 250px;
     height: 250px;
@@ -18,7 +20,6 @@
 .person {
     padding-top: 2em;
     margin-bottom: 3em;
-    border-top: 1px solid lightgrey;
 }
 
 .left {

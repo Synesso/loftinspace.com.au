@@ -1,0 +1,35 @@
+.quote, .pitch, #author {
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+    font-size: 1.5em;
+    color: #494949;
+    text-align: center;
+}
+
+#author p {
+    margin: 0 0 1.5em 0;
+}
+
+blockquote {
+    margin-bottom: -6px;
+}
+
+blockquote:before {
+    content: "\201c";
+    left: -5px;
+}
+
+blockquote:after {
+    content: "\201d";
+    right: -5px;
+}
+
+blockquote:before, blockquote:after {
+    color: #ccc;
+    font-family: Georgia, serif;
+    font-size: 60px;
+    font-weight: 300;
+    position: relative;
+    top: 15px;
+}
+
