@@ -21,7 +21,14 @@ a:hover {
 #main li, #main p {
     font: 22px/1.5 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
-    color: #343434;
+    letter-spacing: 1px;
+    font-weight: 400;
+    line-height: 1.4em;
+    color: #363636;
+}
+
+#main p {
+    font-size: 1em;
 }
 
 .round-photo {
