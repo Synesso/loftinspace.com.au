@@ -1,7 +1,11 @@
 @import url("nav.css");
 @import url("quotes.css");
 
-header #nav li a {
+body {
+    margin: 0;
+}
+
+header #nav li a, header #nav li span {
     color: #efefef;
 }
 
@@ -31,13 +35,12 @@ header #content {
 }
 
 header #nav-wrap {
-    max-width: 1175px;
     margin: 0 auto;
     padding: 15px 20px 0 20px;
 }
 
-header nav {
-    float: right;
+header #nav {
+    margin: 0;
 }
 
 li {

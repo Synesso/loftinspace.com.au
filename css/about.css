@@ -18,7 +18,7 @@ a:hover {
     margin: 0 auto;
 }
 
-#main li, #main p {
+li, p {
     font: 22px/1.5 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     letter-spacing: 1px;
@@ -27,7 +27,7 @@ a:hover {
     color: #363636;
 }
 
-#main p {
+p {
     font-size: 1em;
 }
 

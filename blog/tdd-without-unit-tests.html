@@ -3,39 +3,34 @@
 <html>
 <head>
     <title>TDD without Unit Tests</title>
-    <link rel="stylesheet" href="css/blog.css" type="text/css"/>
+    <link rel="stylesheet" href="../css/blog.css" type="text/css"/>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css"/>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Vollkorn|Asap:400,700" type="text/css"/>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
-    <script type="text/javascript" src="js/ga.js"></script>
+    <script type="text/javascript" src="../js/ga.js"></script>
     <script type="text/javascript"
             src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 </head>
 <body>
+<header id="header">
+    <div id="nav">
+        <nav id="main-nav">
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/about-loft-in-space.html">About</a></li>
+                <li><a href="/what-we-do.html">What we do</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 <div id="main">
-    <header id="header">
-        <div id="logo">
-            <a href="/">
-                <img src="img/loft-in-space-software-consulting-logo.png" style="width:80px" alt="Loft in Space"/>
-            </a>
-        </div>
-        <div id="nav">
-            <nav id="main-nav">
-                <ul>
-                    <li>
-                        <a href="/index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="/about-loft-in-space.html">About</a>
-                    </li>
-                    <li>
-                        <a href="/blog.html">Blog</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div id="logo">
+        <a href="/">
+            <img src="../img/loft-in-space-software-consulting-logo.png" style="width:80px" alt="Loft in Space"/>
+        </a>
+    </div>
     <div class="hr"></div>
     <div id="body">
         <div class="post">
@@ -205,7 +200,7 @@ Glass.new(Wasp.new).stir # => swolen face
         </div>
 
         <div id="disqus_thread"></div>
-        <script type="text/javascript" src="js/disqus.js"></script>
+        <script type="text/javascript" src="../js/disqus.js"></script>
         <noscript>
             Please enable JavaScript to view the
             <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
