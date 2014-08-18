@@ -1,4 +1,3 @@
-@import url("quotes.css");
 @import url("nav.css");
 
 a {
@@ -31,39 +30,46 @@ p {
     font-size: 1em;
 }
 
-.round {
-    border-radius: 125px;;
-    -webkit-border-radius: 125px;
-    -moz-border-radius: 125px;
-}
-
 .photo {
     width: 250px;
-    height: 250px;
-    margin-bottom: 20px;
-}
-
-.chen {
-    background: url(/img/chen.jpg) no-repeat;
-}
-
-.jem {
-    background: url(/img/jem.jpg) no-repeat;
-}
-
-.section {
-    padding-top: 2em;
-    margin-bottom: 3em;
 }
 
 .left {
     float: left;
-    margin-right: 40px;
+    margin-right: 10px;
+}
+.left img {
+    margin-left: -30px;
 }
 
 .right {
     float: right;
-    margin-left: 40px;
+    margin-left: 10px;
+}
+.right img {
+    margin-left: 30px;
+}
+
+.post-wide {
+    width: 1000px;
+    margin: 80px auto 20px;
+}
+
+.clear {
+    clear: both;
+}
+
+.post {
+    padding: 24px 20%;
+}
+
+img {
+    border-width: 0;
+}
+
+#full-logo {
+    text-align: center;
+    clear: both;
 }
 
 .name {
@@ -83,31 +89,5 @@ p {
 .icons {
     font-size: 1em;
     margin-bottom: 2.5em;
-}
-
-.post-wide {
-    width: 1000px;
-    margin: 80px auto 20px;
-}
-
-.clear {
-    clear: both;
-}
-
-#us {
-    padding-bottom: 1em;
-}
-
-.post {
-    padding: 24px 20%;
-}
-
-img {
-    border-width: 0;
-}
-
-#full-logo {
-    text-align: center;
-    clear: both;
 }
 
