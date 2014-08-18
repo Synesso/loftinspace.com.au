@@ -5,7 +5,7 @@ body {
     margin: 0;
 }
 
-header #nav li a, header #nav li span {
+nav li a, nav li span {
     color: #efefef;
 }
 
@@ -32,15 +32,6 @@ header.splash {
 header #content {
     margin-top: 60px;
     float: left;
-}
-
-header #nav-wrap {
-    margin: 0 auto;
-    padding: 15px 20px 0 20px;
-}
-
-header #nav {
-    margin: 0;
 }
 
 li {
