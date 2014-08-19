@@ -122,7 +122,7 @@
                 </blockquote>
                 <p>To generate a new key pair run <code>sbt</code> and then</p>
 <pre><code class="prettyprint">set pgpReadOnly := false
-    pgp-cmd gen-key
+pgp-cmd gen-key
 </code></pre>
                 <p>Follow the prompts. See the <a href="http://www.scala-sbt.org/sbt-pgp/usage.html">SBT PGP plugin
                     usage page</a> for more details.</p>
@@ -132,8 +132,7 @@
                     public key you can skip this step. If you are unsure about whether you have published in the past
                     you can check with the GPG executable: <code class="prettyprint">gpg --search-keys
                         &lt;name|id&gt;</code>. In fact, here's a cute way to pipe the id into your search directly:
-                    <pre><code class="prettyprint">gpg --search-keys <code>gpg --list-keys|grep ^pub| cut -d&#39;/&#39;
-                        -f2|cut -d&#39; &#39; -f1</code></code></pre>
+<pre><code class="prettyprint">gpg --search-keys <code>gpg --list-keys|grep ^pub| cut -d&#39;/&#39; -f2|cut -d&#39; &#39; -f1</code></code></pre>
                     </p>
                 </blockquote>
                 <p>You can send your key to a server in a public key server pool (from where it will then be synced) by
@@ -145,46 +144,42 @@
 
                 <p>First identify the ID of your public key</p>
 <pre><code class="prettyprint">$ gpg --list-keys
-    /home/jem/.gnupg/pubring.gpg
-    ----------------------------
-    pub 2048R/79060711 2014-01-18
-    uid Jeremy Mawson (Jem)
-    <jem.mawson
-    @gmail.com>
-    sub 2048R/3C00E0B0 2014-01-18
+/home/jem/.gnupg/pubring.gpg
+----------------------------
+pub 2048R/79060711 2014-01-18
+uid Jeremy Mawson (Jem)
+<jem.mawson
+@gmail.com>
+sub 2048R/3C00E0B0 2014-01-18
 </code></pre>
                 <p>The public key is listed on the line starting with <code>pub</code>. The ID is the hexademical value
                     after the forward slash (in my case <code>79060711</code>).</p>
 
                 <p>With this information you are able to send the key.</p>
 <pre><code class="prettyprint">$ gpg --keyserver hkp://pool.sks-keyservers.net --send-key 79060711
-    gpg: sending key 79060711 to hkp server pool.sks-keyservers.net
+gpg: sending key 79060711 to hkp server pool.sks-keyservers.net
 </code></pre>
                 <h4>Publishing with SBT</h4>
 
                 <p>First identify the ID of your public key</p>
 <pre><code class="prettyprint">$ sbt
-    Loading /home/jem/tools/sbt-0.13.1/bin/sbt-launch-lib.bash
-    [info] Loading global plugins from /home/jem/.sbt/0.13/plugins
-    [info] Set current project to projects (in build file:/home/jem/projects/)
-    > pgp-cmd list-keys
-    /home/jem/.gnupg/pubring.gpg
-    ----------------------------
-    pub RSA@2048/79060711 2014-01-18
-    uid Jeremy Mawson (Jem)
-    <jem.mawson
-    @gmail.com>
-
-    sub RSA@2048/3c00e0b0 2014-01-18
+Loading /home/jem/tools/sbt-0.13.1/bin/sbt-launch-lib.bash
+[info] Loading global plugins from /home/jem/.sbt/0.13/plugins
+[info] Set current project to projects (in build file:/home/jem/projects/)
+> pgp-cmd list-keys
+/home/jem/.gnupg/pubring.gpg
+----------------------------
+pub RSA@2048/79060711 2014-01-18
+uid Jeremy Mawson (Jem) <jem.mawson@gmail.com>
+sub RSA@2048/3c00e0b0 2014-01-18
 </code></pre>
                 <p>and then publish</p>
 <pre><code class="prettyprint">> pgp-cmd send-key 79060711 hkp://pool.sks-keyservers.net
-    [info] Sending PublicKeyRing(PublicKey(873c61fc79060711, Jeremy Mawson (Jem) \
-    <jem.mawson
-    @gmail.com>, RSA@2048),PublicKey(166556b93c00e0b0, , RSA@2048)) to \
-    HkpServer(http://pool.sks-keyservers.net:11371)
-    INF: [console logger] dispatch: pool.sks-keyservers.net POST /pks/add HTTP/1.1
-    > exit
+[info] Sending PublicKeyRing(PublicKey(873c61fc79060711, Jeremy Mawson (Jem) \
+<jem.mawson@gmail.com>, RSA@2048),PublicKey(166556b93c00e0b0, , RSA@2048)) to \
+HkpServer(http://pool.sks-keyservers.net:11371)
+INF: [console logger] dispatch: pool.sks-keyservers.net POST /pks/add HTTP/1.1
+> exit
 </code></pre>
                 <p><a name="register_user_sonatype"></a></p>
 
