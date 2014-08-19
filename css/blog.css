@@ -61,23 +61,25 @@ pre {
     clear: both;
 }
 
-#header #logo {
+#logo {
     float: left;
+    margin-top: 20px;
 }
 
-#read-more {
+.read-more {
     text-align: center;
     font: 20px 'Vollkorn', Georgia, serif;
 }
 
-.post #date {
+article {
+    padding: 48px 0;
+    margin: 0 20%;
+}
+
+article .date {
     color: #d2d2d2;
     text-align: center;
     font: 20px 'Vollkorn', Georgia, serif;
-}
-
-.post {
-    padding: 48px 20%;
 }
 
 .title a {
