@@ -28,11 +28,13 @@ nav li a, nav li span {
 }
 
 footer {
-    width: 100%;
+    width: 101%;
     height: 30px;
     background-color: rgba(216, 48, 7, 0.80);
     padding: 5px;
-    bottom: 0;
+    position: relative;
+    bottom: -8px;
+    left: -8px;
     text-align: center;
     font-family: 'Roboto', sans-serif;
 }
