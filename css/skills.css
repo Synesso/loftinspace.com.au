@@ -18,13 +18,17 @@ a:hover {
 }
 
 li, p {
-    font: 22px/1.5 'Roboto', sans-serif;
+    font: 1em/1.4 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     letter-spacing: 1px;
     font-weight: 400;
-    line-height: 1.4em;
-    color: #363636;
+    color: #494949;
 }
+
+li{
+    margin-bottom: 10px;
+}
+
 
 p {
     font-size: 1em;
@@ -72,13 +76,17 @@ img {
     clear: both;
 }
 
-.name {
+h2 {
     font-family: 'Roboto', sans-serif;
     letter-spacing: 1px;
-    font-weight: 400;
     line-height: 1.4em;
-    color: #1b1b23;
-    font-size: 2em;
+    font-size: 19px;
+    font-weight: bold;
+    margin: 0;
+}
+ul{
+    padding-left: 20px;
+    list-style-type: square;
 }
 
 .function {

@@ -67,6 +67,11 @@ footer p {
     border-top: 1px lightgrey solid;
 }
 
+.section {
+    padding-top: 2em;
+    margin-bottom: 3em;
+}
+
 .current {
     font-weight: bold;
 }
