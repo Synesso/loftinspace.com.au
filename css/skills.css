@@ -27,14 +27,13 @@ li, p {
 
 li{
     margin-bottom: 10px;
-    margin-left: 10px;
 }
-.left-li{
-    left: -1.5em !important;
+
+article i {
+    left: -2em !important;
     top: 0.4em !important;
     text-align: left !important;
 }
-
 
 p {
     font-size: 1em;
@@ -104,7 +103,14 @@ i{
     color:#D83007;
 }
 
-.icons {
-    font-size: 1em;
-    margin-bottom: 2.5em;
+#call-4-action p {
+    text-align: center;
+    font-size: 22px;
+}
+
+.fa-contact-icon{
+    text-align: center !important;
+    width: 100%;
+    font-size: 2em;
+    color: #454068;
 }
