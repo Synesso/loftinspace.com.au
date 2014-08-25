@@ -107,25 +107,3 @@ i{
     text-align: center;
     font-size: 22px;
 }
-
-.button {
-    height: 1.8em;
-    margin: 0 auto;
-    padding: 0 1em;
-    background-color: #454068;
-    display: inline-block;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-}
-
-.fa-contact-icon {
-    text-align: center !important;
-    width: 100%;
-    color: white;
-    line-height: 1.8em !important;
-}
-
-.fa-contact-icon span {
-    font-family: 'Roboto', sans-serif;
-}
