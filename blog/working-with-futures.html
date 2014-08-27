@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>TDD without Unit Tests</title>
+    <link rel="stylesheet" href="../css/blog.css" type="text/css"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Vollkorn|Roboto|Asap:400,700" type="text/css"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+    <script type="text/javascript" src="../js/ga.js"></script>
+    <script type="text/javascript"
+            src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+</head>
+<body>
+<header id="header">
+    <nav>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about-loft-in-space.html">About</a></li>
+            <li><a href="/skills.html">Skills</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+        </ul>
+    </nav>
+</header>
+<div id="main">
+    <div id="logo">
+        <a href="/">
+            <img src="../img/loft-in-space-software-consulting-logo.png" style="width:80px" alt="Loft in Space"/>
+        </a>
+    </div>
+    <div id="body">
+        <article>
+            <div class="date">27 August 2014</div>
+            <h1 class="title">
+                Working with Futures
+            </h1>
+
+            <div id="copy" class="copy">
+                <p>I recently finished writing a Twitter bot. It helps development teams using
+                    <a href="http://www.rallydev.com/">Rally</a> (a proprietary agile planning tool) to celebrate their
+                    wins by tweeting about it. It has a simple 3-stage process:</p>
+
+                <ol>
+                    <li>retrieve status from Rally</li>
+                    <li>compare this status update with previous status update to see what's new</li>
+                    <li>tweet about anything that is newly completed.</li>
+                </ol>
+
+                <p>The main technologies used are: Spray HTTP Client, Typesafe config, json4s, scala-pickling and
+                    twitter4j. You can <a href="https://github.com/Synesso/soymilky/blob/master/src/main/scala/soymilky/RallyToTwitter.scala">
+                    view the source of the bot</a>, or <a href="https://twitter.com/farnsworthtalks">see it in
+                    action</a>.</p>
+
+                <p>In this project I haved used Futures throughout. For me Futures often feel natural after a brief
+                    period of confusion, wherein I reacquaint myself with them. Quickly they feel natural. This is a
+                    good thing, because once you have a Future you need to keep modelling your application as future
+                    operations, or suffer the penalty (and associated ridicule) of blocking for a result.</p>
+
+                <p>In my bot, the first step is to retrieve an HTTP payload. Using Spray HTTP Client this is returned in
+                    a Future. Once you have a Future you are propelled forward within this monadic context to find and
+                    merge (flatmap) in more and more futures. Getting used to thinking in futures can be difficult, but
+                    as i have found it is worthwhile as it embues/pushes concurrency (check vs parallelism) throughout
+                    your application code.</p>
+
+                <p>Retrieving a remote HTTP payload is seamless, and results in our first Future. This is mapped through
+                    json4s parsing logic that converts the String payload into workable case classes.</p>
+
+<pre><code class="prettyprint">val byRecordType: Seq[Future[Set[Story]]] = Seq(story, defect).map{recordType =>
+  val svc = url(urlFor(recordType, team)).as(user, pass)
+  val json: Future[JValue] = Http(svc OK as.String).map(parse(_)).map{ _ \ "QueryResult" \ "Results" }
+  json.map(_.children.map{result: JValue =>
+    result.extract[Story]
+  }.toSet)
+}
+</code></pre>
+
+                <p>The result type is a temporally current collection with Futures within. In other words a Seq that
+                    exists right now, filled with Sets that will exist in the future. A common transformation on such a
+                    structure is to sequence these inner futures into a single future collection. This is an act of
+                    simplification, as I am not interested in the collection until all its members are actualised.
+                    Whilst I have a Seq[Future[T]], what I really need is a Future[Seq[T]]. In the
+                    <a href="https://www.coursera.org/course/reactive">Coursera Principles of Reactive Programming
+                    course</a> students are asked to
+                    write this future warping logic themselves. It's a lot of fun, but thankfully the standard library
+                    provies the necessary generic functionality in the
+                    <a href="https://www.scala-lang.org/api/current/#scala.concurrent.Future$">Future.sequence</a>
+                    method.</p>
+
+                <p>With a set of Stories (that will be parsed in the future) in hand, the next step is to compare this
+                    to the stories that were found in previous runs. This is done using scala-pickling, using a
+                    synchronous API. As the application logic is already in the land of the future, it makes sense to
+                    explicitly wrap this synchronous operation in a future, so that we can enjoy parallelism with even
+                    more functions.</p>
+
+                <p>The unpickling enabled simply:</p>
+
+<pre><code class="prettyprint">Future { Source.fromFile(storiesFile).mkString.unpickle[Map[String, Set[Story]]] }</code></pre>
+
+                <p>Finding what stories are newly completed is a simple set complement operation on the values within
+                    the future. Using a for-comprehension the complement can also be queued up to complete in the
+                    future.</p>
+
+<pre><code class="prettyprint">val newStories: FutureStories = for {
+  all <- allStories
+  fromBefore <- storiesFromLastRun
+} yield all.map{ case (k, v) => (k, v -- fromBefore.getOrElse(k, Set.empty))}
+</code></pre>
+
+                <p>Tweeting is a simple operation using twitter4j. This
+                    <a href="http://bcomposes.wordpress.com/2013/02/26/using-twitter4j-with-scala-to-perform-user-actions/">
+                        blog post</a>
+                    explains the process well. After ensuring the TwitterFactory (the use of the pattern name "factory"
+                    confirms that we're in Java land) is configured with the correct secret credentials, we need only call
+                    `updateStatus`. Again, this is synchronous, so it has been manually wrapped in a Future. This is not
+                    entirely necessary, as blocking the tweeting operations would simplify the exit condition for the
+                    process. However, I included it for the necessary sense of symmetry.</p>
+
+                <pre><code class="prettyprint">Future { twitter.updateStatus(message) }</code></pre>
+
+                <p>At the end of the process, there are two values to be awaited before the process can terminate.
+                    Firstly the tweeting, and secondly the writing to file of the latest known list of completed
+                    stories. Either operation may finish before the other in theory, so both future results of these
+                    operations are sequenced to a single future and the process awaits its completion (or blows the
+                    stack if something went wrong).
+
+<pre><code class="prettyprint">val finalValue = Future.sequence(Seq(storiesFile, statuses))
+finalValue.onFailure{case t: Throwable => throw t}
+Await.ready(finalValue, 1 minute)
+</code></pre>
+
+                <p>In my experience the initial barrier to working with futures is similar to that experience when first
+                    encountering Options and other monadic types. This feels more complex again because of the tendency
+                    to think in terms of time. But by putting aside temporal concerns and considering Future as just
+                    another monadic context, they begin to feel natural.</p>
+            </div>
+            <div id="meta">
+                <div class="pubDate">
+                    <i class="fa fa-calendar"></i>
+                    <span class="date">27 August 2014</span>
+                </div>
+                <div class="tail">
+                    <i class="fa fa-tags"></i>
+                    <span class="tag">scala</span>
+                </div>
+                <div class="tail">
+                    <i class="fa fa-pencil-square-o"></i>
+                    <span class="author">by Jem Mawson</span>
+                </div>
+            </div>
+        </article>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript" src="../js/disqus.js"></script>
+        <noscript>
+            Please enable JavaScript to view the
+            <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+        <a href="http://disqus.com" class="dsq-brlink">
+            comments powered by
+            <span class="logo-disqus">Disqus</span>
+        </a>
+
+    </div>
+</div>
+<div id="finalfrontier">
+    &nbsp;
+</div>
+</body>
+</html>
