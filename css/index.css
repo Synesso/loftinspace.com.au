@@ -66,6 +66,11 @@ li {
     font-family: 'Roboto', sans-serif;
 }
 
+.offer a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .doxie-img {
     height: 170px;
     vertical-align: bottom;
