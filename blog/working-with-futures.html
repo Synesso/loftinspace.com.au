@@ -39,7 +39,7 @@
             <div id="copy" class="copy">
                 <p>I recently finished writing a Twitter bot. It helps development teams using
                     <a href="http://www.rallydev.com/">Rally</a> (a proprietary agile planning tool) to celebrate their
-                    wins by tweeting about it. It has a simple 3-stage process:</p>
+                    wins by tweeting about recently completed stories. It has a simple 3-stage process:</p>
 
                 <ol>
                     <li>retrieve status from Rally</li>
@@ -56,7 +56,8 @@
                 <p>In this project I haved used futures throughout. For me futures often feel natural after a
                     brief, initial period of confusion. Only after I reacquaint myself with them do things begin to flow.
                     Proficiency and fluency with futures is a good thing, because once you have a future you need to
-                    keep modelling your application as future operations, or suffer the penalty of blocking for a result.</p>
+                    keep modelling your application as future operations, or suffer the penalty of blocking for a result.
+                    For me at least, I need to practice, practice and practice some more until they are second nature.</p>
 
                 <p>In my bot, the first step is to retrieve an HTTP payload. Using Spray HTTP Client this is returned in
                     a <code>Future</code>. Once you have a <code>Future</code> you are propelled forward within this
@@ -80,8 +81,14 @@
                     exists right now, filled with Sets that will exist in the future. A common transformation on such a
                     structure is to sequence these inner futures into a single future collection. This is an important
                     act of simplification, as I am not interested in the collection until all its members are actualised.
-                    Whilst I have a <code>Seq[Future[T]]</code>, what I really need is a <code>Future[Seq[T]]</code>.
-                    In the
+                    Whilst I have a <code>Seq[Future[T]]</code>, what I really need is a <code>Future[Seq[T]]</code>.</p>
+
+                <figure>
+                    <img src="img/sequencing-futures.png"/>
+                </figure>
+                <figcaption>Sequencing Futures into a single Future</figcaption>
+
+                <p>In the
                     <a href="https://www.coursera.org/course/reactive">Coursera Principles of Reactive Programming
                     course</a> students are asked to
                     write this future warping logic themselves. It's a lot of fun, but thankfully the standard library
@@ -146,6 +153,11 @@ val iterFutureTuples: Iterable[Future[(A,B)]] = myMap.map{case (a,b) => b.map(bb
 val futureIterTuples: Future[Iterable[(A,B)]] = Future.sequence(iterFutureTuples)
 val futureMap: Future[Map[A,B]] = futureIterTuples.map(_.toMap)
 </code></pre>
+
+                <figure>
+                    <img src="img/sequencing-maps.png"/>
+                </figure>
+                <figcaption>Sequencing a Map with Future values into a single Future</figcaption>
 
                 <p>Or more succinctly as:</p>
 

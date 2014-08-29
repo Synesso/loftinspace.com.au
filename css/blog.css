@@ -82,6 +82,20 @@ article .date {
     font: 20px 'Vollkorn', Georgia, serif;
 }
 
+figure {
+    text-align: center;
+}
+
+figure img {
+    width: 80%;
+    margin: 0 auto;
+}
+
+figcaption {
+    text-align: center;
+    font-family: 'Asap', Helvetica, sans-serif;
+}
+
 .title a {
     color: black;
 }
