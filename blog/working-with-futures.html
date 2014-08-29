@@ -84,7 +84,7 @@
                     Whilst I have a <code>Seq[Future[T]]</code>, what I really need is a <code>Future[Seq[T]]</code>.</p>
 
                 <figure>
-                    <img src="img/sequencing-futures.png"/>
+                    <img src="img/sequencing-futures.png" alt="diagram: sequencing futures into a single future"/>
                 </figure>
                 <figcaption>Sequencing Futures into a single Future</figcaption>
 
@@ -155,7 +155,7 @@ val futureMap: Future[Map[A,B]] = futureIterTuples.map(_.toMap)
 </code></pre>
 
                 <figure>
-                    <img src="img/sequencing-maps.png"/>
+                    <img src="img/sequencing-maps.png" alt="diagram: sequencing maps with future values into a single future"/>
                 </figure>
                 <figcaption>Sequencing a Map with Future values into a single Future</figcaption>
 
