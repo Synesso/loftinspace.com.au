@@ -43,7 +43,7 @@ li code {
 }
 
 li, p {
-    font: 22px/1.5 'Vollkorn', Georgia, serif;
+    font: 22px/33px freight-text-pro, Georgia, Cambria, 'Times New Roman', Times, serif;
     -webkit-font-smoothing: antialiased;
     color: #343434;
 }
