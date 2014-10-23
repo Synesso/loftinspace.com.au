@@ -103,3 +103,14 @@ figcaption {
 .title a:hover {
     color: grey;
 }
+
+#social {
+    background-color: orange;
+    overflow: hidden;
+}
+
+.social-button {
+    float: left;
+    width: 100px;
+    height: 20px;
+}
