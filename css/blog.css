@@ -105,12 +105,21 @@ figcaption {
 }
 
 #social {
-    background-color: orange;
     overflow: hidden;
+    margin-bottom: 1.5em;
 }
 
 .social-button {
     float: left;
-    width: 100px;
     height: 20px;
+    margin-right: 10px;
+}
+
+#meta {
+    font-family: 'Roboto', sans-serif;
+    font-size: 90%;
+}
+
+#meta i {
+    width: 18px;
 }
