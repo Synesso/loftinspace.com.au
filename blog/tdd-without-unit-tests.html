@@ -9,11 +9,14 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Vollkorn|Roboto|Asap:400,700" type="text/css"/>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
-    <script type="text/javascript" src="../js/ga.js"></script>
-    <script type="text/javascript"
-            src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+    <script type="text/javascript" src="../js/ga.js" async defer></script>
+    <script type="text/javascript" src="../js/social.js" async defer></script>
+    <script type="text/javascript" src="//apis.google.com/js/platform.js" async defer>{lang: 'en-GB'}</script>
+    <script type="text/javascript" src="//platform.linkedin.com/in.js" async defer>{lang: en_AU}</script>
+    <script type="text/javascript" src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js" async defer></script>
 </head>
 <body>
+<div id="fb-root"></div>
 <header id="header">
     <nav>
         <ul>
@@ -178,11 +181,30 @@ Glass.new(Wasp.new).stir # => swolen face
                 <p>In summary, we rely on tests to help us constrain our software. But tests are not the only way to do
                     this, nor are they the most efficient. In truth, it is the inverse of the original assertion that
                     holds true. It is statically typed languages that force us to "write tests", more so than
-                    dynamically typed ones do, because the tests are built into the language.</p></div>
+                    dynamically typed ones do, because the tests are built into the language.</p>
+            </div>
+
+            <div id="social">
+                <div class="social-button">
+                    <a class="twitter-share-button" href="http://twitter.com/share" data-related="twitterdev"
+                       data-size="medium" data-count="none">Tweet</a>
+                </div>
+
+                <div class="social-button">
+                    <div class="g-plus" data-action="share" data-annotation="none"></div>
+                </div>
+
+                <div class="social-button">
+                    <script type="IN/Share"></script>
+                </div>
+
+                <div class="fb-share-button social-button" data-layout="button"></div>
+            </div>
+
             <div id="meta">
                 <div class="pubDate">
                     <i class="fa fa-calendar"></i>
-                    <span class="date">05 March 2014</span>
+                    <span>05 March 2014</span>
                 </div>
                 <div class="tail">
                     <i class="fa fa-tags"></i>
