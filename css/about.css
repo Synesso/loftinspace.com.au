@@ -1,5 +1,6 @@
 @import url("quotes.css");
 @import url("nav.css");
+@import url("profile.css");
 
 a {
     text-decoration: none;
@@ -31,39 +32,9 @@ p {
     font-size: 1em;
 }
 
-.round {
-    border-radius: 125px;;
-    -webkit-border-radius: 125px;
-    -moz-border-radius: 125px;
-}
-
-.photo {
-    width: 250px;
-    height: 250px;
-    margin-bottom: 20px;
-}
-
-.chen {
-    background: url(/img/chen.jpg) no-repeat;
-}
-
-.jem {
-    background: url(/img/jem.jpg) no-repeat;
-}
-
 .section {
     padding-top: 2em;
     margin-bottom: 3em;
-}
-
-.left {
-    float: left;
-    margin-right: 40px;
-}
-
-.right {
-    float: right;
-    margin-left: 40px;
 }
 
 .name {

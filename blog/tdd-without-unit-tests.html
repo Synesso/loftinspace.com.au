@@ -11,6 +11,7 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
     <script type="text/javascript" src="../js/ga.js" async defer></script>
     <script type="text/javascript" src="../js/social.js" async defer></script>
+    <script type="text/javascript" src="../js/disqus.js" async defer></script>
     <script type="text/javascript" src="//apis.google.com/js/platform.js" async defer>{lang: 'en-GB'}</script>
     <script type="text/javascript" src="//platform.linkedin.com/in.js" async defer>{lang: en_AU}</script>
     <script type="text/javascript" src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js" async defer></script>
@@ -35,10 +36,29 @@
     </div>
     <div id="body">
         <article>
-            <div class="date">05 March 2014</div>
-            <h1 class="title">
-                TDD without Unit Tests
-            </h1>
+            <div id="headline">
+
+                <div class="meta">
+                    <div class="pubDate">
+                        <i class="fa fa-calendar"></i>
+                        <span>05 March 2014</span>
+                    </div>
+                    <div>
+                        <i class="fa fa-pencil-square-o"></i>
+                        <span class="author">by Jem Mawson</span>
+                    </div>
+                    <div id="licence">
+                        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                            <img alt="Creative Commons License" style="border-width:0"
+                                 src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+                        </a>
+                    </div>
+                </div>
+
+                <h1 class="title">
+                    TDD without Unit Tests
+                </h1>
+            </div>
 
             <div id="copy" class="copy">
                 <p>Many years ago I was walking through the office when I passed a colleague talking to our manager. I
@@ -47,7 +67,6 @@
                     already committed to the importance of high test coverage, the idea of putting natural pressure on
                     developers to write tests was probably quite appealing.</p>
 
-                <div id="break"/>
                 <p>I didn't have suitably developed thoughts on the subject at the time, and so kept on walking. But
                     that snippet of conversation had immediately struck me as <em>illogical</em>. How does a dynamic
                     language <em>force</em> us to write tests? How could a language characteristic that provides less
@@ -184,6 +203,13 @@ Glass.new(Wasp.new).stir # => swolen face
                     dynamically typed ones do, because the tests are built into the language.</p>
             </div>
 
+            <div class="meta">
+                <i class="fa fa-tags"></i>
+                <span class="tag">types</span>
+                <span class="tag">testing</span>
+                <span class="tag">tests</span>
+            </div>
+
             <div id="social">
                 <div class="social-button">
                     <a class="twitter-share-button" href="http://twitter.com/share" data-related="twitterdev"
@@ -200,37 +226,28 @@ Glass.new(Wasp.new).stir # => swolen face
 
                 <div class="fb-share-button social-button" data-layout="button"></div>
             </div>
-
-            <div id="meta">
-                <div class="pubDate">
-                    <i class="fa fa-calendar"></i>
-                    <span>05 March 2014</span>
-                </div>
-                <div class="tail">
-                    <i class="fa fa-tags"></i>
-                    <span class="tag">types</span>
-                    <span class="tag">testing</span>
-                    <span class="tag">tests</span>
-                </div>
-                <div class="tail">
-                    <i class="fa fa-pencil-square-o"></i>
-                    <span class="author">by Jem Mawson</span>
-                </div>
-            </div>
         </article>
 
-        <div id="disqus_thread"></div>
-        <script type="text/javascript" src="../js/disqus.js"></script>
-        <noscript>
-            Please enable JavaScript to view the
-            <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-        <a href="http://disqus.com" class="dsq-brlink">
-            comments powered by
-            <span class="logo-disqus">Disqus</span>
-        </a>
+        <div id="about_author">
+
+            <a class="round photo jem-small left" href="../about-loft-in-space.html#jem"></a>
+
+            <p>
+                This post is written by Jeremy Mawson. Jem is an agile software engineer and technical lead.
+                He is a specialist in software development with wide interests and currently focusing on Scala and the
+                Typesafe stack. He lives in Australia with his wife <a href="../about-loft-in-space.html#chen">Chen</a>.
+                Together they remotely assist innovative and socially positive companies to achieve their technology
+                goals.
+                <br/>
+                <a id="twitter-follow" class="twitter-follow-button" href="https://twitter.com/badgerhunt" data-show-count="true" data-lang="en_AU">
+                    Follow @badgerhunt
+                </a>
+            </p>
+        </div>
 
     </div>
+
+    <div id="disqus_thread"></div>
 </div>
 <div id="finalfrontier">
     &nbsp;

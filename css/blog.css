@@ -1,4 +1,22 @@
 @import url("nav.css");
+@import url("profile.css");
+
+body {
+    background-color: whitesmoke;
+}
+
+#body {
+    width: 85%;
+    margin: 0 auto;
+    background-color: white;
+    -webkit-box-shadow: 0 5px 7px rgba(100, 100, 100, 0.7);
+    -moz-box-shadow: 0 5px 7px rgba(100, 100, 100, 0.7);
+    box-shadow: 0 5px 7px rgba(100, 100, 100, 0.7);
+}
+
+nav {
+    margin-top: -8px;
+}
 
 a {
     text-decoration: none;
@@ -19,7 +37,7 @@ a:hover {
 h1 {
     font-family: 'Asap', Helvetica, sans-serif;
     font-size: 48px;
-    text-align: center;
+    margin: 0.25em 0 1em;
 }
 
 h3 {
@@ -54,6 +72,10 @@ p code {
 
 pre {
     margin: 0 30px 0 30px;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre;
+    white-space: pre-wrap;
 }
 
 #full-logo {
@@ -62,24 +84,17 @@ pre {
 }
 
 #logo {
-    float: left;
     margin-top: 20px;
 }
 
 .read-more {
     text-align: center;
     font: 20px 'Vollkorn', Georgia, serif;
+    margin-bottom: 2.5em;
 }
 
 article {
-    padding: 48px 0;
-    margin: 0 20%;
-}
-
-article .date {
-    color: #d2d2d2;
-    text-align: center;
-    font: 20px 'Vollkorn', Georgia, serif;
+    padding: 48px 8% 12px;
 }
 
 figure {
@@ -87,7 +102,6 @@ figure {
 }
 
 figure img {
-    width: 80%;
     margin: 0 auto;
 }
 
@@ -115,11 +129,51 @@ figcaption {
     margin-right: 10px;
 }
 
-#meta {
+.meta {
     font-family: 'Roboto', sans-serif;
     font-size: 90%;
+    float: right;
+    padding-top: 0.8em;
 }
 
-#meta i {
+.meta i {
     width: 18px;
+}
+
+#disqus_thread {
+    padding: 20px 5%;
+}
+
+#licence {
+    margin-top: 0.4em;
+    text-align: right;
+}
+
+.photo {
+    width: 200px;
+    height: 200px;
+}
+
+#about_author {
+    background-image: url("../img/green_cup.png");
+    padding: 36px 48px;
+}
+
+#about_author p {
+    margin: 0 auto;
+    font: 20px/32px freight-text-pro, Georgia, Cambria, 'Times New Roman', Times, serif;
+    height: 200px;
+    color: black;
+}
+
+#about_author a {
+    color: #a51403;
+}
+
+#twitter-follow {
+    margin-top: 20px;
+}
+
+.separated {
+    border-top-style: dotted;
 }
