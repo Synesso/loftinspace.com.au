@@ -90,6 +90,7 @@ pre {
 .read-more {
     text-align: center;
     font: 20px 'Vollkorn', Georgia, serif;
+    margin-bottom: 2.5em;
 }
 
 article {
@@ -132,6 +133,7 @@ figcaption {
     font-family: 'Roboto', sans-serif;
     font-size: 90%;
     float: right;
+    padding-top: 0.8em;
 }
 
 .meta i {
@@ -170,4 +172,8 @@ figcaption {
 
 #twitter-follow {
     margin-top: 20px;
+}
+
+.separated {
+    border-top-style: dotted;
 }
