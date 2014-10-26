@@ -10,7 +10,7 @@
 
 #leaf p {
     font-family: 'Gloria Hallelujah', cursive;
-    font-size: 20px;
+    font-size: 20px !important;
     line-height: 2em;
     color: white;
     position: relative;

@@ -11,7 +11,7 @@
 }
 
 blockquote {
-    margin-bottom: -6px;
+    margin: 0 auto -6px;
 }
 
 blockquote:before {
