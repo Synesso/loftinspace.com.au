@@ -107,3 +107,25 @@ i{
     text-align: center;
     font-size: 22px;
 }
+
+#leaf {
+    width: 100%;
+    text-align: center;
+}
+
+#leaf img {
+    margin: 0 auto;
+    height: 160px;
+}
+
+#leaf p {
+    line-height: 2em;
+    color: white;
+    position: relative;
+    top: -145px;
+    margin-bottom: -95px;
+    -webkit-transform: rotate(9deg);
+    -moz-transform: rotate(9deg);
+    -ms-transform: rotate(9deg);
+    -o-transform: rotate(9deg);
+}
