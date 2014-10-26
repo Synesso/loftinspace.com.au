@@ -9,10 +9,12 @@
 }
 
 #leaf p {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 20px;
     line-height: 2em;
     color: white;
     position: relative;
-    top: -145px;
+    top: -140px;
     margin-bottom: -95px;
     -webkit-transform: rotate(9deg);
     -moz-transform: rotate(9deg);
