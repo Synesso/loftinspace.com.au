@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>Cluster Singleton in Akka</title>
+    <link href="https://plus.google.com/+JemMawson?rel=author"/>
+    <link rel="stylesheet" href="../css/blog.css" type="text/css"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Vollkorn|Roboto|Asap:400,700" type="text/css"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+    <script type="text/javascript" src="../js/ga.js" async defer></script>
+    <script type="text/javascript" src="../js/social.js" async defer></script>
+    <script type="text/javascript" src="../js/disqus.js" async defer></script>
+    <script type="text/javascript" src="//apis.google.com/js/platform.js" async defer>{lang: 'en-GB'}</script>
+    <script type="text/javascript" src="//platform.linkedin.com/in.js" async defer>{lang: en_AU}</script>
+    <script type="text/javascript" src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js" async defer></script>
+</head>
+<body>
+<div id="fb-root"></div>
+<header id="header">
+    <nav>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about-loft-in-space.html">About</a></li>
+            <li><a href="/skills.html">Skills</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+        </ul>
+    </nav>
+</header>
+<div id="main">
+    <div id="logo">
+        <a href="/">
+            <img src="../img/loft-in-space-software-consulting-logo.png" style="width:80px" alt="Loft in Space"/>
+        </a>
+    </div>
+    <div id="body">
+        <article>
+            <div id="headline">
+
+                <div class="meta">
+                    <div class="pubDate">
+                        <i class="fa fa-calendar"></i>
+                        <span>21 April 2014</span>
+                    </div>
+                    <div>
+                        <i class="fa fa-pencil-square-o"></i>
+                        <span class="author">by Jem Mawson</span>
+                    </div>
+                    <div id="licence">
+                        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                            <img alt="Creative Commons License" style="border-width:0"
+                                 src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+                        </a>
+                    </div>
+                </div>
+
+                <h1 class="title">
+                    Cluster Singleton in Akka
+                </h1>
+            </div>
+
+            <div>
+                <p>In a highly-available application, it is occasionally necessary to have some processing performed in
+                    isolation within a cluster, whilst still allowing for processing to continue should the designated
+                    worker node fail. This is trivial with Akka clustering support for the Cluster Singleton
+                    pattern.</p>
+
+                <div id="break"></div>
+                <p>For a motivating example, consider a system that processes large files from a clustered file system.
+                    It is important that any given file is processed exactly once. Atomic file management is difficult
+                    due to the lag time of the file system clustering. Any system that relies solely on file renaming or
+                    locking to designate which node is processing the file will most likely run into contention, leading
+                    to unreliable results. An alternative approach is to ensure only one node is actively seeking work.
+                    In this scenario no contention can possibly occur. </p>
+
+                <p>Akka has made things very easy for developers in the Java ecosystem who need this kind of support.
+                    Built upon its remote actor support, Akka enables <a
+                            href="http://doc.akka.io/docs/akka/snapshot/common/cluster.html">clusters</a> to be created
+                    - the formation of disparate actor systems into one logical actor system. Creation of a cluster is
+                    straight-forward, requiring only the configuration of a <a
+                            href="https://github.com/Synesso/scratch-akka-cluster-singleton/blob/38771ed9939/src/main/resources/application.conf#L3">cluster-specific
+                        provider</a> and one or more <a
+                            href="https://github.com/Synesso/scratch-akka-cluster-singleton/blob/38771ed9939/src/main/resources/application.conf#L15">seed
+                        nodes</a>. Akka handles the complexity of node membership for us, using a <a
+                            href="http://en.wikipedia.org/wiki/Gossip_protocol">gossip protocol</a>. In a short time it
+                    is easy to demonstrate a simple system that is aware of the joining and leaving of nodes and
+                    provides horizontal scalability.</p>
+
+                <p>Within a cluster there is implicitly always at most one node designated as <em>leader</em>. It is
+                    possible to define an actor that is active only on the leader node. This is the <a
+                            href="http://doc.akka.io/docs/akka/snapshot/contrib/cluster-singleton.html#cluster-singleton">Cluster
+                        Singleton</a> pattern. It is enabled simply by defining actor properties using the <code>akka.contrib.pattern.ClusterSingletonManager</code>.
+                </p>
+<pre><code class="prettyprint">
+    val clusterSingletonProperties = ClusterSingletonManager.props(
+      singletonProps = Props(classOf[YourSingletonActor]),
+      singletonName = "the-singleton",
+      terminationMessage = PoisonPill,
+      role = None)
+    system.actorOf(clusterSingletonProperties, "clusterSingleton")
+</code></pre>
+                <p>The resulting actor will always be created on a node when that node becomes the leader. It will not
+                    exist more than once in a cluster. However it is possible that, through an unfortunate sequence of
+                    seed node termination and restarts that you obtain two clusters! (In which case you will certainly
+                    have two cluster singletons running). The <a
+                            href="https://github.com/Synesso/scratch-akka-cluster-singleton/blob/38771ed9939/src/main/scala/sample/cluster/simple/SimpleClusterApp.scala#L24">configuration
+                        property <code>akka.cluster.role.$role.min-nr-of-members</code></a> can be used to ensure that
+                    the cluster is not effected until a quorum is established.</p>
+
+                <p>I have derived a simplified example of cluster singleton usage from the provided typesafe activator
+                    examples. Clone it from GitHub and follow the instructions in the readme to observe the cluster
+                    singleton in action. <a href="https://github.com/Synesso/scratch-akka-cluster-singleton">https://github.com/Synesso/scratch-akka-cluster-singleton</a>.
+                </p>
+            </div>
+
+            <div class="meta">
+                <i class="fa fa-tags"></i>
+                <span class="tag">akka</span>
+                <span class="tag">scala</span>
+            </div>
+
+            <div id="social">
+                <div class="social-button">
+                    <a class="twitter-share-button" href="http://twitter.com/share" data-related="twitterdev"
+                       data-size="medium" data-count="none">Tweet</a>
+                </div>
+
+                <div class="social-button">
+                    <div class="g-plus" data-action="share" data-annotation="none"></div>
+                </div>
+
+                <div class="social-button">
+                    <script type="IN/Share"></script>
+                </div>
+
+                <div class="fb-share-button social-button" data-layout="button"></div>
+            </div>
+
+        </article>
+
+        <div id="about_author">
+
+            <a class="round photo chen-small left" href="../about-loft-in-space.html#chen"></a>
+
+            <p>
+                This post is written by Jeremy Mawson. <a href="../about-loft-in-space.html#jem">Jem</a> is an agile
+                software engineer and technical lead. He is a specialist in software development with wide interests and
+                currently focusing on Scala and the Typesafe stack. He lives in Australia with his wife
+                <a href="../about-loft-in-space.html#chen">Chen</a>. Together they remotely assist innovative and
+                socially positive companies to achieve their technology goals.
+                <br/>
+                More about <a href="../index.html">Loft in Space</a>.
+                <br/>
+                <a id="twitter-follow" class="twitter-follow-button" href="https://twitter.com/badgerhunt"
+                   data-show-count="true" data-lang="en_AU">
+                    Follow @badgerhunt
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div id="disqus_thread"></div>
+</div>
+</body>
+</html>

@@ -22,6 +22,10 @@
     background: url(/img/jem-200.jpg) no-repeat;
 }
 
+.chen-small{
+    background: url(/img/chen-li-200.jpg) no-repeat;
+}
+
 .left {
     float: left;
     margin-right: 40px;
