@@ -157,6 +157,7 @@ figcaption {
 #about_author {
     background-image: url("../img/green_cup.png");
     padding: 40px 20px;
+    overflow:auto;
 }
 
 #about_author p {
