@@ -158,7 +158,7 @@ figcaption {
     height: 200px;
 }
 
-#about_author {
+#about_author, #individual_author {
     background-image: url("../img/green_cup.png");
     padding: 40px 20px;
     overflow:auto;
@@ -169,8 +169,13 @@ figcaption {
     font: 18px/28px freight-text-pro, Georgia, Cambria, 'Times New Roman', Times, serif;
     color: black;
 }
+#individual_author p{
+     margin: 0 auto;
+     font: 20px/34px freight-text-pro, Georgia, Cambria, 'Times New Roman', Times, serif;
+    color: black;
+}
 
-#about_author a {
+#about_author, #individual_author  a {
     color: #a51403;
 }
 
