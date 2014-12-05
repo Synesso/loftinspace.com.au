@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Making a Distinction Between MVPs and Prototypes</title>
+    <meta name="description" content="The strategies for determining whether to build an MVP or a prototype are different. It is a conscious decision that needs to be made during the concept phase.">
+    <link rel="stylesheet" href="../css/blog.css" type="text/css"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Vollkorn|Roboto|Asap:400,700" type="text/css"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+    <script type="text/javascript" src="../js/ga.js" async defer></script>
+    <script type="text/javascript" src="../js/social.js" async defer></script>
+    <script type="text/javascript" src="../js/disqus.js" async defer></script>
+    <script type="text/javascript" src="//apis.google.com/js/platform.js" async defer>{lang: 'en-GB'}</script>
+    <script type="text/javascript" src="//platform.linkedin.com/in.js" async defer>{lang: en_AU}</script>
+    <script type="text/javascript" src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js" async defer></script>
+</head>
+<body>
+<div id="fb-root"></div>
+<header id="header">
+    <nav>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about-loft-in-space.html">About</a></li>
+            <li><a href="/skills.html">Skills</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+        </ul>
+    </nav>
+</header>
+<div id="main">
+    <div id="logo">
+        <a href="/">
+            <img src="../img/loft-in-space-software-consulting-logo.png" style="width:80px" alt="Loft in Space"/>
+        </a>
+    </div>
+    <div id="body">
+        <article>
+            <div id="headline">
+
+                <div class="meta">
+                    <div class="pubDate">
+                        <i class="fa fa-calendar"></i>
+                        <span>08 December 2014</span>
+                    </div>
+                    <div>
+                        <i class="fa fa-pencil-square-o"></i>
+                        <span class="author">by Chen Li</span>
+                    </div>
+                    <div id="licence">
+                        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                            <img alt="Creative Commons License" style="border-width:0"
+                                 src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+                        </a>
+                    </div>
+                </div>
+
+                <h1 class="title">
+                    Making a Distinction Between MVPs and Prototypes
+                </h1>
+            </div>
+
+            <div>
+                <p>The terms Minimum Viable Product (MVP) and prototype are often used
+                    interchangeably in most of the technical literature and blogs. While working with startups, I have
+                    observed much confusion caused by this. I believe it is worthwhile to make a distinction between the
+                    two. In this post, I have highlighted the different strategies for determining whether to build an
+                    MVP or a prototype. It is a conscious decision that needs to be made during the concept phase. </p>
+
+
+                <h2><span style="color: darkgreen">What are they?</span></h2>
+
+                <p>My definitions of the terms are:</p>
+
+                <p><span style="font-weight:bold">Prototype</span> is a model of a product built to test or demonstrate
+                    the feasibility of a concept. </p>
+
+                <p><span style="font-weight:bold;">Minimum Viable Product (MVP)</span>, while also serving the purpose of
+                    maximising validated learning for the least amount of effort, is built with the most basic set of
+                    features that allow the product to be functional and deployed into production in order to accelerate
+                    time to market for new product introduction. It is more than a proof of concept.</p>
+
+                <p>The original term MVP was defined by Frank Robinson, and popularised by Steve Blank, and Eric Ries
+                    (for web applications) as a key concept in <a href="http://theleanstartup.com/principles">Lean
+                        Startup Methodology</a>. However, the differences in the two are not highlighted.</p>
+
+                <h2><span style="color: darkgreen">How are they different? </h2>
+
+                <p>An <span style="font-weight:bold">MVP</span> is the first version of software fit for release to
+                    customers. It has enough functionality to be considered useful and to kick off the
+                    build-measure-learn feedback loop. The purpose is to maximise learning from early customer feedback
+                    with the least amount of implementation effort. The design and implementation process requires some rigour and discipline with a high level long
+                    term product strategy in mind, in order to set out a good foundation for future development. </p>
+
+                <p> A <span style="font-weight:bold">prototype</span> on the other hand is built as quickly as possible
+                    to prove or disprove the viability of a planned solution. The focus of a prototype design is its
+                    presentation and usually not fit for deployment into production. It might not even be software.
+                    Paper and Power Point prototypes are popular methods for getting a feel for the usability and
+                    features of a product. </p>
+
+                <p> <span style="font-weight:bold">Prototypes</span> are designed for a small audience and should be thrown away. However, it is frequently
+                    the case that prototypes are built upon; a tactic that leads to unnecessary long-term pain. Using
+                    prototype as a foundation for production software will incur a large amount of <a
+                            href="http://martinfowler.com/bliki/TechnicalDebt.html">technical debt</a> (a concept
+                    introduced by Ward Cunningham), as there isn't the time and resources available to build good code
+                    and practices before delivery. If it is subsequently used as the basis for ongoing product
+                    development, organisations will have to "pay interest" in the form of slower development progress,
+                    or "pay principle" in the form of rewriting the poorly designed code.
+                </p>
+
+                <p> An <span style="font-weight:bold">MVP</span> is usually released to a sizable user group (e.g. a
+                    trial or
+                    the standard user group) in order to collect user feedback and market data. You let these customers
+                    loose
+                    on your MVP before implementing the complete set of functionality, so that the feedback from
+                    customers can
+                    guide future product development. A <span style="font-weight:bold">prototype</span> is more for the
+                    purpose of demonstrating a product idea and therefore, is not usually released to any target market
+                    customers to be used. </p>
+
+                <p>The term <span style="font-weight:bold">MVP</span> has been a particularly popular concept in the context of startups. Even those who have
+                    popularised the term have sometimes referred to it as prototype MVP and state that the letter 'P' in
+                    the acronym is misleading. In my view, videos, mock-ups and presentations are not MVPs. Apart from serving
+                    the same purposes of testing product hypothesis with minimal effort and
+                    accelerating learning, MVPs deliver tangible initial customer value while prototypes only
+                    demonstrate promised value. </p>
+
+                <h2><span style="color: darkgreen">How to choose between them?</h2>
+
+                <p>When deciding whether to build a prototype or an MVP, it is a good idea to consider the following
+                    questions:</p>
+                <ol>
+                    <li>What is the vision of the product?</li>
+                    <br>
+                    <li>What are the target user groups and what needs does the product address for them? This question
+                        determines what are the product hypothesises that you are testing i.e. the goal of the prototype
+                        or MVP.
+                    </li>
+                    <br>
+                    <li>What is the competitive landscape and what are the product differentiators? Or if it is a
+                        technical solution for the internal business, what problems does the software solve?
+                    </li>
+                </ol>
+
+
+                <p>Whether you decide MVP or a prototype is the right thing to build first, ideally the design should
+                    clearly reflect the product vision in some form or shape and the key market differentiators/what
+                    problems the product is to solve. </p>
+
+                <p>To determine what to build, the questions to ask are:</p>
+
+                <ol>
+                    <li>What is the purpose of the prototype or MVP i.e. what are the riskiest assumptions that require
+                        validation?
+                    </li>
+                    <br>
+                    <li>Who are the users/audience you want to collect feedback from?</li>
+                    <br>
+                    <li>What is the funding strategy? What are the available budget and resources, and timeframe
+                        targets?
+                    </li>
+                </ol>
+
+                <p> Depending on what hypothesis is to be validated, a prototype is often sufficient and no development
+                    might be required. It is of course perfectly valid to build a simple prototype first before
+                    development an MVP. </p>
+
+                <p>Steve Blank who started the lean movement gave a good example on this point in his post <a
+                        href="http://steveblank.com/2013/07/22/an-mvp-is-not-a-cheaper-product-its-about-smart-learning/">
+                        "An MVP is not a Cheaper Product, It's about Smart Learning."</a> Blank recommended the team to
+                    rent the hardware and hand process the data to show the customers which took much less time and
+                    initial investment, instead of implementing the hardware and software solution with a minimum set of
+                    features. In this post, Steve referred to the solution to test the hypothesis as an MVP. The
+                    recommendation he gave to the team was to put together a demonstrable proof of concept, i.e. a
+                    prototype in my view. It is precisely due to the confusion within engineering teams and novice
+                    technology entrepreneurs I believe it is valuable to make the distinction between the two. </p>
+
+                <p>Assuming you agree with my definition of MVP being the first iteration of production worthy software,
+                    deciding to build an MVP requires commitment and I would advise to go through the preliminary
+                    analysis with the view to establish a viable <span style="font-weight:bold">business case</span>
+                    before proceeding. </p>
+
+                <p>The purpose of a <span style="font-weight:bold">business case</span> is to qualitatively and
+                    quantitatively rationalise an investment. Apart from stating the business objective, it estimates
+                    the expected benefits and costs in measurable terms e.g. Return on Investment (ROI), pay back
+                    period, initial investment (including internal and external) and projected cash flow. Also, it
+                    outlines the critical success factors and identifies the key risks, issues and dependencies. A
+                    business case is a living artefact that evolves throughout the implementation of the product and is
+                    used to validate if the overall project is on track at key stage gates. </p>
+
+                <p>So why would a team decide to implement an MVP instead of building a prototype first? It could be
+                    that the business case and product concept are sound, and there is enough funding and minimum risks.
+                    If this is the case and the priority is to launch a functional lean product to gather more extensive
+                    user feedback, MVP would be the right thing to build.</p>
+
+                <h2><span style="color: darkgreen">What to watch out for? </h2>
+
+                <p>The biggest challenge (as demonstrated in Steve Blank's post mentioned above) is to clearly define
+                    exactly what concept is to be validated and what is the most effective way to validate it. Once the
+                    goal is clear, the other challenges are scoping and design. </p>
+
+                <p>In building an MVP, the objective is to achieve the optimum balance between maximising investment
+                    return/learning and minimising risks. From a scoping perspective, to minimise risks, it is
+                    absolutely necessary to do some high level market data gathering and user requirement analysis. From
+                    a technical perspective, it is difficult to get the balance right to not only quickly elicit market
+                    response, but also lay out a good quality foundation for future work. However, taking too long to
+                    build a perfect MVP may cause you to miss the market window. Accept and understand that incurring
+                    some level of technical debt at the early stage is inevitable and quick feedback loop would allow
+                    accelerated learning. When the uncertainties and risks early on during the project are high,
+                    knowledge acquisition is of the highest priority. The objective of gaining knowledge in order to
+                    build the right thing that your target customers want need be delicately balanced with building it
+                    fast and building it right. </p>
+
+                <p>The Concept Phase is a critical time for any project whether it is in a startup environment or an
+                    established business, when many challenging decisions are to be made. An experienced team
+                    understands the trade-offs, risks and rewards, and makes their decisions consciously and
+                    strategically. </p>
+
+
+            </div>
+
+            <div class="meta">
+                <i class="fa fa-tags"></i>
+                <span class="tag">MVP</span>
+                <span class="tag">prototype</span>
+                <span class="tag">Concept Phase</span>
+            </div>
+
+            <div id="social">
+                <div class="social-button">
+                    <a class="twitter-share-button" href="http://twitter.com/share" data-related="twitterdev"
+                       data-size="medium" data-count="none">Tweet</a>
+                </div>
+
+                <div class="social-button">
+                    <div class="g-plus" data-action="share" data-annotation="none"></div>
+                </div>
+
+                <div class="social-button">
+                    <script type="IN/Share"></script>
+                </div>
+
+                <div class="fb-share-button social-button" data-layout="button"></div>
+            </div>
+
+        </article>
+
+        <div id="individual_author">
+
+            <a class="round photo chen-small left" href="../about-loft-in-space.html#chen"></a>
+
+            <p>
+                This post is written by Chen Li. <a href="../about-loft-in-space.html#chen">Chen</a>'s interests are
+                in Strategic Business Analysis, Product &amp; Project Management and improving development
+                processes.
+                She lives in Australia with her husband <a href="../about-loft-in-space.html#jem">Jeremy</a>. Together
+                they remotely assist innovative and
+                socially positive companies to achieve their technology goals.
+            </p><br/>
+            <p> Learn more about us at <a href="../index.html">Loft in Space</a>.
+
+            </p>
+
+        </div>
+    </div>
+
+    <div id="disqus_thread"></div>
+</div>
+</body>
+</html>
