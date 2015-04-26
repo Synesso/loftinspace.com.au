@@ -196,3 +196,13 @@ figcaption {
     float: right;
     margin-left: 20px;
 }
+
+.inset {
+    border: 1px solid darkgoldenrod;
+    padding: 0 2em;
+    font-size: 80%;
+}
+
+.inset p {
+    font: 18px/28px freight-text-pro, Georgia, Cambria, 'Times New Roman', Times, serif;
+}
